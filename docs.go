@@ -115,7 +115,7 @@ func stringifyFlag(f Flag) string {
 
 	usageWithDefault := strings.TrimSpace(usage + defaultValueString)
 
-	pn := prefixedNames(f.Names(), placeholder)
+	pn := FlagNamePrefixer(f.Names(), placeholder)
 	sliceFlag, ok := f.(DocGenerationMultiValueFlag)
 	if ok && sliceFlag.IsMultiValueFlag() {
 		pn = pn + " [ " + pn + " ]"
